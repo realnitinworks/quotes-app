@@ -1,0 +1,50 @@
+<!--templates/home.html-->
+
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block content %}
+
+    <div class="container-fluid mt-5">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Quote</th>
+              <th scope="col">Author</th>
+              <th scope="col">Added</th>
+              <th scope="col">Edit Quote</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for quote in quotes %}
+            <tr>
+              <td><a class="text-success" href="{% url 'quote_detail' quote.id %}">{{ quote.text }}</a></td>
+              <td>{{ quote.author }}</td>
+              <td>{{ quote.created | naturaltime }}</td>
+              <td>
+                  <div class="container">
+                      <div class="row">
+                          <div class="col">
+                              <a href="{% url 'quote_edit' quote.id %}" class="text-info">
+                                  <i class="far fa-edit"></i>
+                              </a>
+                          </div>
+                          <div class="col">
+                              <a href="{% url 'quote_delete' quote.id %}" class="text-danger">
+                                <i class="fas fa-trash-alt"></i>
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </td>
+            </tr>
+            {% endfor quote %}
+          </tbody>
+        </table>
+        <div class="my-5 text-center">
+          <a class="btn btn-success text-white" href="{% url 'quote_new' %}">Add Quote</a>
+        </div>
+    </div>
+
+{% endblock content %}

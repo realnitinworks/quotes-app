@@ -1,0 +1,23 @@
+<!--templates/quote_delete.html-->
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <form class="container-fluid my-5" action="" method="post">
+    {% csrf_token %}
+    <div class="d-flex flex-column align-items-center">
+      <h3>Are you sure you want to delete <span class="text-info">"{{quote.text|truncatechars:20}}"</span> ?
+      </h3>
+      <div class="row mt-3">
+        <div class="col-md-6 my-2 my-md-0">
+          <input class="btn btn-lg btn-danger btn-block" type="submit" value="Confirm">
+        </div>
+        <div class="col-md-6 my-2 my-md-0">
+          <a class="btn btn-lg btn-warning btn-block" href="{% url 'home' %}">Cancel</a>
+        </div>
+      </div>
+    </div>
+  </form>
+
+{% endblock content %}

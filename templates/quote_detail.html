@@ -1,0 +1,38 @@
+<!-- templates/quote_detail.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <header class="masthead"
+            {% if quote.cover %}
+                style="background-image: url({{ quote.cover }});"
+            {% endif %}
+    >
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="quote col-lg-8 col-md-10 mx-auto text-center text-white">
+                    <div class="display-3">
+                        <i class="fas fa-quote-right mr-5"></i>{{ quote.text }}
+                        <i class="fas fa-quote-right ml-5"></i>
+                    </div>
+                    <cite class="display-5"> - {{ quote.author }}</cite>
+                    <div class="row mt-5">
+                        <div class="col-md-4 my-2 my-md-0">
+                            <a href="{% url 'quote_edit' quote.id %}" class="btn btn-info btn-block">Edit</a>
+                        </div>
+                        <div class="col-md-4 my-2 my-md-0">
+                            <a href="{% url 'quote_delete' quote.id %}" class="btn btn-danger btn-block">Delete</a>
+                        </div>
+                        <div class="col-md-4 my-2 my-md-0">
+                            <a href="{% url 'home' %}" class="btn btn-warning btn-block">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+{% endblock content %}
