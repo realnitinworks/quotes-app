@@ -1,0 +1,19 @@
+<!--templates/registration/login.html-->
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <div class="container">
+    <form class="mt-5 mb-2" action="" method="post">
+      {% csrf_token %}
+      <h1 class="display-2">Login Here</h1>
+      {{ form|crispy}}
+      <input type="submit" value="Sign In" class="btn btn-success">
+    </form>
+    <p>
+        <a href="{% url 'password_reset' %}">Forgot Password?</a> |
+        <a href="{% url 'django_registration_register' %}">Register</a>
+    </p>
+  </div>
+{% endblock content %}

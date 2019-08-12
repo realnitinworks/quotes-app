@@ -10,6 +10,7 @@ django-crispy-forms = "==1.7.2"
 pytz = "==2019.2"
 sqlparse = "==0.3.0"
 Django = "==2.2"
+django-registration = "*"
 
 [requires]
 python_version = "3.7"
