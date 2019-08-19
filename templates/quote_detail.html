@@ -20,10 +20,14 @@
                     <cite class="display-5"> - {{ quote.author }}</cite>
                     <div class="row mt-5">
                         <div class="col-md-4 my-2 my-md-0">
+                            {% if quote.user == user %}
                             <a href="{% url 'quote_edit' quote.id %}" class="btn btn-info btn-block">Edit</a>
+                            {% endif %}
                         </div>
                         <div class="col-md-4 my-2 my-md-0">
+                            {% if quote.user == user %}
                             <a href="{% url 'quote_delete' quote.id %}" class="btn btn-danger btn-block">Delete</a>
+                            {% endif %}
                         </div>
                         <div class="col-md-4 my-2 my-md-0">
                             <a href="{% url 'home' %}" class="btn btn-warning btn-block">Back</a>

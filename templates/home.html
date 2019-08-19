@@ -26,14 +26,18 @@
                   <div class="container">
                       <div class="row">
                           <div class="col">
+                              {% if quote.user == user %}
                               <a href="{% url 'quote_edit' quote.id %}" class="text-info">
                                   <i class="far fa-edit"></i>
                               </a>
+                              {% endif %}
                           </div>
                           <div class="col">
+                              {% if quote.user == user %}
                               <a href="{% url 'quote_delete' quote.id %}" class="text-danger">
                                 <i class="fas fa-trash-alt"></i>
                               </a>
+                              {% endif %}
                           </div>
                       </div>
                   </div>
