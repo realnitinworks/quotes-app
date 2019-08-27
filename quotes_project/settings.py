@@ -131,6 +131,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+# For static files deployment
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # For Crispy Template forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
